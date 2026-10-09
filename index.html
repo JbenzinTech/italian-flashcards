@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grammatica – Italian grammar flashcards</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17585d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Grammatica">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9f0ee;--ink:#10302f;--mute:#4d6a68;--front:#fffdf5;--back:#17585d;--backink:#fff8dc;--lemon:#f1c932;--line:#b9cdca;--chip:#d7e5e2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1f1f;--ink:#e8f1ee;--mute:#92b0ac;--front:#14302f;--back:#f1c932;--backink:#10302f;--line:#2b4a48;--chip:#183836}}
+:root[data-theme="dark"]{--bg:#0c1f1f;--ink:#e8f1ee;--mute:#92b0ac;--front:#14302f;--back:#f1c932;--backink:#10302f;--line:#2b4a48;--chip:#183836}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Literata",Georgia,serif;line-height:1.5;min-height:100vh}
+main{max-width:640px;margin:0 auto;padding:22px 16px 40px}
+h1{font:700 2rem/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 18px;font-size:.95rem}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:14px}
+.chip{flex:none;font:500 .88rem "Bricolage Grotesque",system-ui,sans-serif;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip small{opacity:.7;margin-left:4px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.bar i{display:block;height:100%;width:0;background:var(--lemon);transition:width .3s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.85rem;margin-bottom:12px}
+.stage{perspective:1200px}
+.card{position:relative;width:100%;height:340px;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.2,1);font:inherit;color:inherit;text-align:center;display:block}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;overflow:auto;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.f{background:var(--front)}
+.b{background:var(--back);color:var(--backink);transform:rotateY(180deg)}
+.tag{font:500 .85rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--mute)}
+.q{font:600 1.45rem/1.35 "Literata",Georgia,serif;white-space:pre-line;max-width:30ch}
+.a{font:700 1.6rem/1.35 "Bricolage Grotesque",system-ui,sans-serif;white-space:pre-line}
+.note{font-size:.95rem;opacity:.9;max-width:42ch}
+.hint{font-size:.82rem;color:var(--mute)}
+.row{display:flex;gap:12px;margin-top:26px}
+.btn{flex:1;font:700 1rem "Bricolage Grotesque",system-ui,sans-serif;padding:13px;border-radius:12px;border:2px solid var(--ink);cursor:pointer;color:var(--ink);background:var(--front)}
+.btn.go{background:var(--lemon);color:#10302f}
+.btn:disabled{opacity:.4;cursor:default}
+.tools{display:flex;gap:16px;justify-content:center;margin-top:18px}
+.link{background:none;border:0;color:var(--mute);font:inherit;font-size:.88rem;text-decoration:underline;cursor:pointer}
+.done{border:2px solid var(--ink);border-radius:18px;background:var(--front);box-shadow:6px 6px 0 var(--ink);padding:40px 24px;text-align:center}
+.done h2{font:700 1.7rem "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 8px}
+.done .btn{max-width:260px;margin:12px auto 0;display:block;width:100%}
+:focus-visible{outline:3px solid var(--lemon);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.bar i{transition:none}}
+@media (max-width:480px){.card{height:380px}.q{font-size:1.25rem}.a{font-size:1.35rem}}
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.qbox{border:2px solid var(--ink);border-radius:18px;background:var(--front);box-shadow:6px 6px 0 var(--ink);padding:28px 20px;text-align:center}
+.qbox .q{margin:12px auto 0}
+.opts{display:grid;gap:10px;margin:20px auto 0;max-width:340px}
+.opt.ok,.opt.ok:disabled{background:var(--lemon);color:#10302f;opacity:1}
+.opt.bad{text-decoration:line-through}
+.inp{display:block;width:100%;max-width:300px;margin:20px auto 12px;font:600 1.2rem "Literata",Georgia,serif;text-align:center;padding:11px;border:2px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink)}
+.fb{margin-top:16px;font-size:.95rem}
+.fb .btn{display:block;max-width:220px;margin:12px auto 0}
+#chk{max-width:220px;margin:0 auto}
+</style>
+</head>
+<body>
+<main>
+  <h1>Grammatica</h1>
+  <p class="sub">Italian grammar flashcards. Tap the card to see the answer.</p>
+  <div class="modes" id="modes" role="group" aria-label="Study mode"><button class="chip" data-m="flip" aria-pressed="true">Flip cards</button><button class="chip" data-m="choose" aria-pressed="false">Multiple choice</button><button class="chip" data-m="gap" aria-pressed="false">Fill the gap</button><select id="len" class="chip" aria-label="Round length" style="display:none"><option value="10">10 questions</option><option value="20" selected>20 questions</option><option value="50">50 questions</option><option value="0">All</option></select><select id="lvl" class="chip" aria-label="Level" style="display:none"><option value="-1">All levels</option><option value="0">Beginner</option><option value="1">Intermediate</option><option value="2">Advanced</option></select></div>
+  <div class="chips" id="chips" role="group" aria-label="Choose a topic"></div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="meta"><span id="pos"></span><span id="mastered"></span></div>
+  <div id="area"></div>
+  <div class="tools">
+    <button class="link" id="shuf">Shuffle</button>
+    <button class="link" id="reset">Reset progress</button>
+    <button class="link" id="install" hidden>Install app</button>
+  </div>
+  <p class="hint" style="text-align:center;margin-top:14px">Keyboard: space flips · 1 = again · 2 = got it</p>
+</main>
+<script>
+var CATS=["All","Articles","Present tense","Passato prossimo","Prepositions","Pronouns","Nouns & adjectives","Subjunctive","Conditional","Imperative","Relative pronouns"];
+var D=[
+["Articles","The (masc. sing.) before:\nzaino · studente · psicologo","lo zaino · lo studente · lo psicologo","Lo goes before s + consonant, z, gn, ps, x, y. Other consonants take il; vowels take l'."],
+["Articles","the friend (f.) · the friends (f.)","l'amica · le amiche","Singular l' before a vowel. The feminine plural is always le."],
+["Articles","Plural of:\nil libro · lo zio · l'albero","i libri · gli zii · gli alberi","I replaces il. Gli replaces both lo and l'."],
+["Articles","a friend (f.) · a friend (m.)","un'amica · un amico","Only the feminine form takes an apostrophe."],
+["Articles","a boy · a student · an uncle","un ragazzo · uno studente · uno zio","Uno follows the same rule as lo: s + consonant, z, gn, ps."],
+["Articles","Pick the article:\n__ gnocchi · __ hotel · __ yogurt","gli gnocchi · l'hotel · lo yogurt","H is silent, so hotel counts as a vowel start. Y acts like s + consonant."],
+["Present tense","essere (to be)\nio · tu · lui · noi · voi · loro","sono · sei · è · siamo · siete · sono","Note the accent on è (is) versus e (and)."],
+["Present tense","avere (to have)\nio · tu · lui · noi · voi · loro","ho · hai · ha · abbiamo · avete · hanno","The h is always silent."],
+["Present tense","parlare (regular -are)\nio · tu · lei · noi · voi · loro","parlo · parli · parla · parliamo · parlate · parlano","Endings: -o -i -a -iamo -ate -ano."],
+["Present tense","finire (-isc- verb)\nio · tu · lei · loro","finisco · finisci · finisce · finiscono","Noi and voi skip -isc-: finiamo, finite. Verbs like dormire never add it: dormo."],
+["Present tense","andare\nio · noi · loro","vado · andiamo · vanno","Irregular in three forms; voi andate is regular."],
+["Present tense","fare\nio · tu · noi · voi","faccio · fai · facciamo · fate","Fare also means 'to make' and appears in weather phrases: fa freddo."],
+["Present tense","potere · volere · dovere\n(io form)","posso · voglio · devo","Followed by an infinitive: Voglio mangiare."],
+["Present tense","venire · uscire\n(io · noi)","vengo, veniamo · esco, usciamo","Both change their stem in the io form."],
+["Passato prossimo","How is the passato prossimo formed?","avere or essere (present) + past participle","Ho mangiato. Sono andato."],
+["Passato prossimo","Past participles of:\nmangiare · vendere · dormire","mangiato · venduto · dormito","-are → -ato, -ere → -uto, -ire → -ito."],
+["Passato prossimo","Irregular participles:\nfare · dire · vedere · prendere","fatto · detto · visto · preso","Also: scrivere → scritto, aprire → aperto, mettere → messo."],
+["Passato prossimo","Which verbs take essere?","Movement, change of state and reflexive verbs","andare, venire, partire, arrivare, nascere, morire, restare, plus svegliarsi and every reflexive verb."],
+["Passato prossimo","Maria __ (andare) a Roma ieri.","Maria è andata a Roma ieri.","With essere, the participle agrees with the subject: andato, andata, andati, andate."],
+["Passato prossimo","Ho visto Marta.\nReplace Marta with a pronoun.","L'ho vista.","With lo, la, li, le the participle agrees with the pronoun. Lo and la drop to l' before ho."],
+["Prepositions","di + il · a + la · in + i · su + lo · da + gli","del · alla · nei · sullo · dagli","Di, a, da, in, su merge with the article. Con and per usually stay separate."],
+["Prepositions","Vado __ Italia · __ Roma · __ casa · __ dentista","in Italia · a Roma · a casa · dal dentista","In for countries, a for cities and casa, da + person for 'to someone's place'."],
+["Prepositions","Studio italiano __ due anni.","da","Da + present tense: an action that began in the past and continues."],
+["Prepositions","Marco's book · I'm from Milan","il libro di Marco · Sono di Milano","Di marks possession, origin and material."],
+["Prepositions","Parto __ treno · __ piedi · __ macchina","in treno · a piedi · in macchina","Transport takes in. On foot is the exception: a piedi."],
+["Pronouns","Replace the object:\nVedo Marco · Maria · i ragazzi · le ragazze","Lo vedo · La vedo · Li vedo · Le vedo","The pronoun goes before the conjugated verb."],
+["Pronouns","Do il libro a Maria.\nDo il libro a Marco.\nUse a pronoun.","Le do il libro.\nGli do il libro.","Le = to her, gli = to him."],
+["Pronouns","Reflexive: svegliarsi\nio · tu · lui · noi","mi sveglio · ti svegli · si sveglia · ci svegliamo","The pronoun changes with the subject; the verb stays regular."],
+["Pronouns","Do il libro a te.\nReplace both nouns.","Te lo do.","Indirect comes first. Mi, ti, ci, vi become me, te, ce, ve. Gli and le become glielo: Glielo do."],
+["Pronouns","Formal 'you':\nHow are you? · Do you speak English?","Come sta? · Lei parla inglese?","Lei takes the third-person singular verb."],
+["Pronouns","Voglio vedere Marco.\nUse a pronoun, two ways.","Lo voglio vedere. · Voglio vederlo.","With a modal verb, the pronoun goes before it or attaches to the infinitive, which drops its final -e."],
+["Nouns & adjectives","Plural:\nlibro · casa · studente · città · uovo","libri · case · studenti · città · uova","-o → -i, -a → -e, -e → -i. Accented endings don't change. Uovo has the irregular feminine plural uova."],
+["Nouns & adjectives","Plural:\namico · amica · lago · luogo","amici · amiche · laghi · luoghi","Feminine -ca/-ga always become -che/-ghe. Masculine -co/-go vary: amici, but fuochi."],
+["Nouns & adjectives","Plural:\nil problema · il programma · la mano","i problemi · i programmi · le mani","Greek-origin nouns in -ma are masculine. La mano is feminine despite -o."],
+["Nouns & adjectives","Agree the adjective:\nuna ragazza (alto) · dei ragazzi (simpatico)","una ragazza alta · dei ragazzi simpatici","Adjectives match gender and number and usually follow the noun."],
+["Nouns & adjectives","bello before a noun:\nlibro · zaino · amico · amici","un bel libro · un bello zaino · un bell'amico · dei begli amici","Bello follows the pattern of the definite article."],
+["Nouns & adjectives","Plural:\nuna casa grande · un libro verde","due case grandi · due libri verdi","Adjectives in -e have one singular form and -i in the plural."],
+["Subjunctive","When is the subjunctive used?","After opinion, doubt, wish and emotion + che","Penso che sia vero. Voglio che tu venga. Spero che stia bene. The subject usually changes after che."],
+["Subjunctive","Present subjunctive of essere and avere\n(io · tu · lui · noi)","sia · sia · sia · siamo\nabbia · abbia · abbia · abbiamo","Io, tu and lui share one form, so keep the subject pronoun."],
+["Subjunctive","Present subjunctive:\nparlare · credere · dormire (lui)","parli · creda · dorma","-are verbs take -i; -ere and -ire verbs take -a."],
+["Subjunctive","Penso che or So che: which needs the subjunctive?","Penso che","Sapere states a fact (So che è vero). Also triggers: bisogna che, è meglio che, sebbene, affinché."],
+["Conditional","Conditional of volere · potere · dovere (io)","vorrei · potrei · dovrei","Used for polite requests: Vorrei un caffè."],
+["Conditional","Conditional of parlare · credere · dormire (io)","parlerei · crederei · dormirei","Infinitive minus -e, plus -ei, -esti, -ebbe, -emmo, -este, -ebbero. In -are verbs a becomes e."],
+["Conditional","Conditional of essere and avere\n(io · lui)","sarei, sarebbe\navrei, avrebbe","Irregular stems. Also andare → andrei, fare → farei, venire → verrei."],
+["Conditional","If I had time, I would travel.","Se avessi tempo, viaggerei.","Hypothetical 'if': se + imperfect subjunctive, then the conditional."],
+["Imperative","Imperative of parlare\n(tu · Lei · noi · voi)","parla · parli · parliamo · parlate","The Lei form borrows the present subjunctive."],
+["Imperative","Imperative of prendere and finire\n(tu · voi)","prendi, prendete\nfinisci, finite","Regular -ere and -ire verbs share the same endings: -i and -ete or -ite."],
+["Imperative","Irregular tu imperative:\nandare · fare · dire · essere","va' · fa' · di' · sii","Also stare → sta', dare → da'. The voi forms are regular: andate, fate, dite, siate."],
+["Imperative","Don't speak! (to a friend)","Non parlare!","Negative tu uses non + infinitive. Other persons just add non: Non parli, Lei."],
+["Relative pronouns","che or cui?","Che is subject or object; cui follows a preposition","La ragazza che parla. Il libro che leggo. La ragazza a cui scrivo."],
+["Relative pronouns","The man whose daughter is a doctor","L'uomo la cui figlia è medico","Between article and noun, cui means 'whose'. The article agrees with the noun owned."],
+["Relative pronouns","Who studies, learns.","Chi studia impara.","Chi means 'whoever' and takes a singular verb."],
+["Relative pronouns","Join:\nIl film è bello. Ho visto il film.","Il film che ho visto è bello.","Che replaces the repeated noun. Don't add a pronoun: not 'che lo ho visto'."]
+];
+var X=[
+["Articles","__ zaino è pesante.","Lo",["Il","L'","Gli"],"Z takes lo."],
+["Articles","Ho visto __ ragazze.","le",["i","gli","la"],"The feminine plural is always le."],
+["Present tense","Noi __ (andare) al mare.","andiamo",["andano","andate","vado"],"Andare is irregular: vado, vai, va, andiamo, andate, vanno."],
+["Present tense","Lei __ (finire) il lavoro.","finisce",["finise","finiamo","finisci"],"Finire adds -isc- except for noi and voi."],
+["Present tense","Tu __ (avere) fame?","hai",["ha","ho","hanno"],"Avere: ho, hai, ha, abbiamo, avete, hanno."],
+["Passato prossimo","Ieri io __ (andare) al cinema.","sono andato|sono andata",["ho andato","sono andare","ho andata"],"Andare takes essere, and the participle agrees with the subject."],
+["Passato prossimo","Abbiamo __ (fare) la spesa.","fatto",["fato","facciato","fare"],"Fare has an irregular participle: fatto."],
+["Passato prossimo","Maria ha __ (prendere) il treno.","preso",["prenduto","presa","prendito"],"Prendere has an irregular participle: preso."],
+["Prepositions","Vivo __ Brescia.","a",["in","da","di"],"Cities take a."],
+["Prepositions","Siamo andati __ medico.","dal",["al","del","nel"],"Da + il merges into dal when you go to a person."],
+["Prepositions","Il libro è __ tavolo.","sul",["nel","dal","al"],"Su + il becomes sul."],
+["Pronouns","Marco? __ vedo domani.","Lo",["La","Li","Gli"],"Lo replaces a masculine singular direct object."],
+["Pronouns","Do il libro a Maria. __ do il libro.","Le",["Gli","La","Lo"],"Le means 'to her'."],
+["Pronouns","Io __ sveglio alle sette.","mi",["ti","si","ci"],"Reflexive pronoun for io: mi."],
+["Nouns & adjectives","Due case __ (grande).","grandi",["grande","grando","grandei"],"Adjectives in -e form the plural in -i."],
+["Nouns & adjectives","Gli __ (amico) di Luca sono simpatici.","amici",["amichi","amiche","amico"],"Masculine plural of amico is amici."],
+["Nouns & adjectives","Ho un __ (bello) libro.","bel",["bello","bella","belli"],"Bello shortens to bel before most masculine consonants."],
+["Subjunctive","Penso che Luca __ (essere) a casa.","sia",["è","sarà","fosse"],"Pensare che takes the subjunctive."],
+["Subjunctive","Voglio che tu __ (venire) alla festa.","venga",["vieni","viene","venissi"],"Volere che takes the subjunctive."],
+["Conditional","Io __ (volere) un caffè, per favore.","vorrei",["voglio","volevo","vorrebbe"],"The conditional makes requests polite."],
+["Conditional","Se avessi tempo, __ (viaggiare).","viaggerei",["viaggio","viaggiare","viaggiavo"],"Conditional of -are verbs: stem + -erei."],
+["Imperative","__ (mangiare, tu) la verdura!","Mangia",["Mangi","Mangiare","Mangiate"],"Tu imperative of -are verbs ends in -a."],
+["Imperative","Non __ (parlare, tu) così!","parlare",["parla","parli","parlate"],"Negative tu command: non + infinitive."],
+["Relative pronouns","Il libro __ ho letto è bello.","che",["cui","quale","chi"],"Che is the subject or direct object."],
+["Relative pronouns","La città in __ vivo è bella.","cui",["che","dove","quale"],"After a preposition use cui."]
+];
+"ibbibiiibiibibbiaiibibibi".split("").forEach(function(c,k){X[k][5]="bia".indexOf(c)});
+function P(c,s,a,d,n,l){var z={};a.split("|").forEach(function(v){z[v]=1});d=d.map(function(v){return v.split("|")[0]}).filter(function(v){if(!v||z[v])return false;z[v]=1;return true}).slice(0,3);X.push([c,s,a,d,n,l])}
+function T(t){return t.split(",")}
+function R(t){var o={};t.split("|").forEach(function(r){var q=r.split(":");o[q[0]]=T(q[1])});return o}
+function ro(f,p){return f.slice(p+1).concat(f.slice(0,p))}
+function cap(t){return t[0].toUpperCase()+t.slice(1)}
+function K(k,n,st){return[0,1,2].map(function(j){return(k+j*st)%n})}
+var PN=T("Io,Tu,Lui,Noi,Voi,Loro"),PJ=T("io,tu,lui,noi,voi,loro"),NL="Nouns & adjectives";
+function SEL(t,n){return T(n).map(function(i){return[i,t[i]]})}
+function MK(t,st,E){return T(st).map(function(s){return[s+{a:"are",e:"ere",i:"ire",s:"ire"}[t],T(E[t]).map(function(e){return s+e})]})}
+var CF=T("ei,esti,ebbe,emmo,este,ebbero"),EP={a:"o,i,a,iamo,ate,ano",e:"o,i,e,iamo,ete,ono",i:"o,i,e,iamo,ite,ono",s:"isco,isci,isce,iamo,ite,iscono"},ES={a:"i,i,i,iamo,iate,ino",e:"a,a,a,iamo,iate,ano",i:"a,a,a,iamo,iate,ano",s:"isca,isca,isca,iamo,iate,iscano"},EI={a:"a,i,iamo,ate",e:"i,a,iamo,ete",i:"i,a,iamo,ite",s:"isci,isca,iamo,ite"},EC={};
+["a","e","i","s"].forEach(function(t){EC[t]=CF.map(function(e){return(t=="a"||t=="e"?"er":"ir")+e}).join(",")});
+var VA="parl,abit,lavor,compr,ascolt,guard,chiam,cant,ball,aspett,cucin,impar,trov,arriv,torn,cammin,nuot",VE="vend,cred,prend,scriv,legg,chiud,mett,ripet,ricev,spend",VI="dorm,part,apr,sent",VS="fin,cap,prefer,pul";
+function REG(E){return[MK("a",VA,E)||[],MK("e",VE,E).concat(MK("i",VI,E),MK("s",VS,E))]}
+function G(cat,lv,vs,tn,pf,sf){vs.forEach(function(v,k){pf(k).forEach(function(p,j){P(cat,sf(v[0],p,k,j),v[1][p],ro(v[1],p).concat([v[0]]),tn+" of "+v[0]+": "+v[1].join(", ")+".",lv)})})}
+var P6=function(k){return K(k,6,2)},P5=function(k){return K(k,5,2).map(function(j){return j+1})},P4=function(k){return K(k,4,1)};
+var AC={m:["il","i","un"],f:["la","le","una"],v:["l'","gli","un"],w:["l'","le","un'"],s:["lo","gli","uno"]},AN={m:"Il, i and un go before most masculine nouns; la, le and una before feminine ones.",f:"Il, i and un go before most masculine nouns; la, le and una before feminine ones.",v:"Before a vowel the singular article becomes l'; masculine indefinite stays un.",w:"Before a vowel the singular article becomes l'; feminine indefinite is un'.",s:"Lo, gli and uno go before s + consonant, z, gn, ps, x, y."};
+function ART(lv,t){t.split(";").forEach(function(r){var f=T(r),q=AC[f[2]];
+ P("Articles","__ "+f[0]+" (the)",q[0],["il","lo","l'","la"],AN[f[2]],lv);
+ P("Articles","__ "+f[1]+" (the, plural)",q[1],["i","gli","le","il"],"Plural: i for il, gli for lo and l' (masculine), le for all feminine nouns.",lv);
+ P("Articles","__ "+f[0]+" (a/an)",q[2],["un","uno","una","un'"],AN[f[2]],lv);
+ if(f[2]=="s"){P(NL,"__ "+f[0]+" (bello)","bello",["bel","bell'","bella"],"Bello follows the article: bel (il), bello (lo), bell' (l').",2);P(NL,"__ "+f[1]+" (bello, plural)","begli",["bei","belli","belle"],"Plural: bei (i), begli (gli), belle (le).",2)}})}
+ART(0,"libro,libri,m;casa,case,f;tavolo,tavoli,m;ragazzo,ragazzi,m;ragazza,ragazze,f;gatto,gatti,m;cane,cani,m;strada,strade,f;treno,treni,m;pianta,piante,f;finestra,finestre,f;porta,porte,f;bicchiere,bicchieri,m;quaderno,quaderni,m;telefono,telefoni,m;giornale,giornali,m;macchina,macchine,f");
+ART(1,"amico,amici,v;amica,amiche,w;albero,alberi,v;ospedale,ospedali,v;isola,isole,w;uomo,uomini,v;aereo,aerei,v;anno,anni,v;occhio,occhi,v;ora,ore,w;estate,estati,w;arancia,arance,w;aeroporto,aeroporti,v;ufficio,uffici,v;esame,esami,v;inverno,inverni,v;erba,erbe,w;albergo,alberghi,v");
+ART(2,"zaino,zaini,s;studente,studenti,s;psicologo,psicologi,s;zio,zii,s;sport,sport,s;stato,stati,s;gnomo,gnomi,s;specchio,specchi,s;scrittore,scrittori,s;scalino,scalini,s;spettacolo,spettacoli,s;zero,zeri,s;pneumatico,pneumatici,s;gnocco,gnocchi,s;yogurt,yogurt,s;sciopero,scioperi,s;scultore,scultori,s;studio,studi,s;hotel,hotel,v");
+var IRP=R("essere:sono,sei,è,siamo,siete,sono|avere:ho,hai,ha,abbiamo,avete,hanno|andare:vado,vai,va,andiamo,andate,vanno|fare:faccio,fai,fa,facciamo,fate,fanno|venire:vengo,vieni,viene,veniamo,venite,vengono|potere:posso,puoi,può,possiamo,potete,possono|volere:voglio,vuoi,vuole,vogliamo,volete,vogliono|dovere:devo,devi,deve,dobbiamo,dovete,devono|dire:dico,dici,dice,diciamo,dite,dicono|uscire:esco,esci,esce,usciamo,uscite,escono|sapere:so,sai,sa,sappiamo,sapete,sanno|dare:do,dai,dà,diamo,date,danno|stare:sto,stai,sta,stiamo,state,stanno|bere:bevo,bevi,beve,beviamo,bevete,bevono|rimanere:rimango,rimani,rimane,rimaniamo,rimanete,rimangono|tenere:tengo,tieni,tiene,teniamo,tenete,tengono|scegliere:scelgo,scegli,sceglie,scegliamo,scegliete,scelgono|salire:salgo,sali,sale,saliamo,salite,salgono|tradurre:traduco,traduci,traduce,traduciamo,traducete,traducono|spegnere:spengo,spegni,spegne,spegniamo,spegnete,spengono|mangiare:mangio,mangi,mangia,mangiamo,mangiate,mangiano|cominciare:comincio,cominci,comincia,cominciamo,cominciate,cominciano|cercare:cerco,cerchi,cerca,cerchiamo,cercate,cercano|pagare:pago,paghi,paga,paghiamo,pagate,pagano|studiare:studio,studi,studia,studiamo,studiate,studiano");
+var SP=function(i,p){return PN[p]+" __ ("+i+")."};
+var rp=REG(EP);G("Present tense",0,rp[0].concat(SEL(IRP,"essere,avere,andare,fare")),"Present",P6,SP);G("Present tense",1,rp[1].concat(SEL(IRP,"venire,potere,volere")),"Present",P6,SP);G("Present tense",2,SEL(IRP,"dovere,dire,uscire,sapere,dare,stare,bere,rimanere,tenere,scegliere,salire,tradurre,spegnere,mangiare,cominciare,cercare,pagare,studiare"),"Present",P6,SP);
+function PPX(recs,lv){recs.forEach(function(q){var inf=q[0],pt=q[1],av=q[2]=="a",ptf=pt.slice(0,-1)+"a",st=inf.slice(0,-3),rg=st+{are:"ato",ere:"uto",ire:"ito"}[inf.slice(-3)],A=av?"ha ":"è ",B=av?"è ":"ha ";
+ if(av)P("Passato prossimo","Ieri io ho __ ("+inf+").",pt,[inf,ptf,rg,st+"ando"],"Participle of "+inf+": "+pt+".",lv);
+ else P("Passato prossimo","Ieri Maria è __ ("+inf+").",ptf,[pt,inf,rg.slice(0,-1)+"a"],inf+" takes essere, so the participle agrees: "+pt+", "+ptf+".",lv);
+ P("Passato prossimo","Ieri Marco __ ("+inf+").",A+pt,[B+pt,A+inf,B+inf],inf+" takes "+(av?"avere":"essere")+": "+A+pt+".",lv)})}
+function RR(t,a){return T(t).map(function(i){return[i,i.slice(0,-3)+{are:"ato",ere:"uto",ire:"ito"}[i.slice(-3)],a]})}
+PPX(RR("parlare,mangiare,comprare,ascoltare,guardare,chiamare,cantare,ballare,aspettare,cucinare,imparare,trovare,amare,abitare,lavorare,giocare,pagare,studiare,cenare,pranzare,telefonare,viaggiare,nuotare,camminare,suonare,guidare","a"),0);
+PPX(RR("vendere,credere,ripetere,ricevere,temere,potere,volere,dovere,avere,dormire,capire,finire,sentire,servire,pulire,costruire,seguire,preferire","a").concat(RR("arrivare,tornare,entrare,partire,uscire,diventare,restare,cadere,andare","e")),1);
+PPX("fare:fatto:a,dire:detto:a,vedere:visto:a,prendere:preso:a,scrivere:scritto:a,leggere:letto:a,aprire:aperto:a,mettere:messo:a,chiudere:chiuso:a,bere:bevuto:a,perdere:perso:a,vincere:vinto:a,scegliere:scelto:a,rompere:rotto:a,correre:corso:a,decidere:deciso:a,spendere:speso:a,chiedere:chiesto:a,rispondere:risposto:a,offrire:offerto:a,accendere:acceso:a,spegnere:spento:a,tradurre:tradotto:a,discutere:discusso:a,rimanere:rimasto:e,nascere:nato:e,morire:morto:e,venire:venuto:e,essere:stato:e".split(",").map(function(r){return r.split(":")}),2);
+var PR=function(c,s,a,d,n,l){P(c,s,a,d,n,l)};
+T("Roma,Milano,Napoli,Torino,Firenze,Venezia,Bologna,Genova,Verona,Brescia,Parigi,Londra,Madrid,Berlino,Vienna,Atene,Lisbona,Praga,Mosca,Tokyo").forEach(function(c){P("Prepositions","Vado __ "+c+".","a",["in","da","di","con"],"Cities take a.",0)});
+T("Italia,Francia,Spagna,Germania,Austria,Grecia,Portogallo,Svizzera,Inghilterra,Polonia,Giappone,Cina,India,Brasile,Argentina,Messico,Canada,Egitto,Russia,Irlanda").forEach(function(c){P("Prepositions","Vivo __ "+c+".","in",["a","da","di","con"],"Countries take in.",0)});
+T("Marco,Maria,Luca,Anna,Paolo,Giulia,Sara,Franco,Elena,Carlo,Pietro,Laura,Marta,Luigi,Chiara").forEach(function(c){P("Prepositions","Il libro è __ "+c+".","di",["a","da","in","con"],"Di marks possession.",0)});
+var AR=R("di:del,dello,della,dell',dei,degli,delle|a:al,allo,alla,all',ai,agli,alle|da:dal,dallo,dalla,dall',dai,dagli,dalle|in:nel,nello,nella,nell',nei,negli,nelle|su:sul,sullo,sulla,sull',sui,sugli,sulle"),AA=T("il,lo,la,l',i,gli,le");
+[T("libro,studente,scuola,ospedale,libri,amici,case"),T("tavolo,zaino,casa,aeroporto,giorni,studenti,strade")].forEach(function(nn){Object.keys(AR).forEach(function(p){AR[p].forEach(function(f,j){P("Prepositions","Combine: "+p+" + "+AA[j]+" → __ "+nn[j],f,ro(AR[p],j),p+" + "+AA[j]+" = "+f+". Di, a, da, in and su merge with the article.",1)})})});
+var IV=T("partire,studiare,mangiare,lavorare,dormire,cantare");
+"Decido~di,Smetto~di,Finisco~di,Spero~di,Cerco~di,Penso~di,Dimentico~di,Ho bisogno~di,Ho voglia~di,Evito~di,Accetto~di,Rifiuto~di,Mi stanco~di,Comincio~a,Continuo~a,Imparo~a,Riesco~a,Provo~a,Inizio~a,Torno~a,Rinuncio~a,Mi preparo~a,Passo il tempo~a,Mi diverto~a,Sono pronto~a,Insegno~a".split(",").forEach(function(r,k){var q=r.split("~");[k%6,(k+3)%6].forEach(function(i){P("Prepositions",q[0]+" __ "+IV[i]+".",q[1],["a","di","da","per","in"],"Verb + preposition + infinitive: "+q[0].toLowerCase()+" "+q[1]+" ...",2)})});
+var OB=T("lo,la,li,le");
+T("Vedo,Compro,Prendo,Cerco,Trovo,Porto,Dimentico,Perdo").forEach(function(v){[["il libro","lo"],["la pizza","la"],["i libri","li"],["le mele","le"],["Marco","lo"],["Maria","la"]].forEach(function(o){P("Pronouns",v+" "+o[0]+". → __ "+v.toLowerCase()+".",o[1],OB,"Lo, la, li, le replace a direct object and go before the verb.",0)})});
+T("alzarsi,lavarsi,vestirsi,divertirsi,svegliarsi,sedersi").forEach(function(v,k){[k,(k+3)%6].forEach(function(p){P("Pronouns",PN[p]+" __ ("+v+", pronoun only).",T("mi,ti,si,ci,vi,si")[p],T("mi,ti,si,ci,vi"),"Reflexive pronouns: mi, ti, si, ci, vi, si.",0)})});
+T("Do il libro,Scrivo,Telefono,Mando un messaggio,Parlo,Rispondo,Presto la macchina,Chiedo il conto").forEach(function(v){[["a Maria","le"],["a Marco","gli"],["a te","ti"],["a voi","vi"]].forEach(function(o){P("Pronouns",v+" "+o[0]+". → __ "+v[0].toLowerCase()+v.slice(1)+".",o[1],["mi","ti","le","gli","ci","vi","lo"],"Indirect object pronouns: le (to her), gli (to him), ti (to you), vi (to you all).",1)})});
+var SV={con:"Esco",per:"Lo faccio",da:"Vengo",di:"Parlo",a:"Penso"};
+Object.keys(SV).forEach(function(pr){[["me","me"],["te","you (sing.)"],["lui","him"],["lei","her"],["noi","us"],["voi","you (pl.)"],["loro","them"]].forEach(function(q){P("Pronouns",SV[pr]+" "+pr+" __ ("+q[1]+").",q[0],T("me,te,lui,lei,noi,voi,loro"),"After a preposition use the stressed pronouns: me, te, lui, lei, noi, voi, loro.",1)})});
+T("Do,Mando,Presto").forEach(function(v){[["il libro","lo"],["la lettera","la"],["i regali","li"],["le chiavi","le"]].forEach(function(o){[["a me","me"],["a te","te"],["a Maria","glie"],["a noi","ce"],["a voi","ve"]].forEach(function(r){var g=r[1]=="glie"?"":" ";P("Pronouns",v+" "+o[0]+" "+r[0]+". → __ "+v.toLowerCase()+".",r[1]+g+o[1],[o[1]+" "+r[1]].concat(OB.filter(function(x){return x!=o[1]}).map(function(x){return r[1]+g+x})),"Indirect comes first; mi, ti, ci, vi become me, te, ce, ve; gli/le + lo/la/li/le is written as one word: glielo.",2)})})});
+function PL(lv,l,note){l.forEach(function(q){var b=q[0].slice(0,-1);P(NL,"Plural of “"+q[0]+"”: __",q[1],[b+"i",b+"e",b+"a",q[0]],q[0]+" → "+q[1]+". "+note,lv)})}
+function ADJ(lv,fs){fs.forEach(function(f,j){[j%4,(j+2)%4].forEach(function(x){P(NL,["un ragazzo","una ragazza","due ragazzi","due ragazze"][x]+" __ ("+f[0]+").",f[x],f,"Adjectives agree in gender and number: "+f.join(", ")+".",lv)})})}
+PL(0,T("libro,tavolo,ragazzo,gatto,cane,strada,casa,scuola,finestra,porta,sedia,penna,mela,fiore,treno,albero,bicchiere,giornale,quaderno,telefono,macchina,bambino,bambina,nonno,nonna,fratello,sorella,mese,giorno,ristorante").map(function(w){var e=w.slice(-1);return[w,w.slice(0,-1)+(e=="a"?"e":"i")]}),"Rule: -o → -i, -a → -e, -e → -i.");
+ADJ(0,T("alt,nuov,piccol,pigr,italian,ross,ner,buon,brav,car,magr,bass").map(function(s){return[s+"o",s+"a",s+"i",s+"e"]}).concat(T("grand,felic,verd").map(function(s){return[s+"e",s+"e",s+"i",s+"i"]})));
+PL(1,T("amico-amici,amica-amiche,lago-laghi,luogo-luoghi,medico-medici,banca-banche,fungo-funghi,parco-parchi,farmacia-farmacie,arancia-arance,camicia-camicie,valigia-valigie,bugia-bugie,ciliegia-ciliegie,zio-zii,figlio-figli,occhio-occhi,negozio-negozi,orologio-orologi,studio-studi,tecnico-tecnici,albergo-alberghi,stomaco-stomachi,riga-righe,formaggio-formaggi,viaggio-viaggi,ginocchio-ginocchi,pioggia-piogge,spiaggia-spiagge,faccia-facce,fuoco-fuochi,gioco-giochi,dialogo-dialoghi,catalogo-cataloghi,monaco-monaci,sindaco-sindaci").map(function(r){return r.split("-")}),"Feminine -ca/-ga take h (amiche); -io loses the o (zii, figli).");
+ADJ(1,T("simpatico:simpatica:simpatici:simpatiche,lungo:lunga:lunghi:lunghe,bianco:bianca:bianchi:bianche,stanco:stanca:stanchi:stanche,ricco:ricca:ricchi:ricche,antico:antica:antichi:antiche,largo:larga:larghi:larghe,pratico:pratica:pratici:pratiche,tedesco:tedesca:tedeschi:tedesche").map(function(r){return r.split(":")}));
+PL(2,T("uovo-uova,dito-dita,braccio-braccia,labbro-labbra,paio-paia,centinaio-centinaia,uomo-uomini,dio-dei,ala-ali,città-città,università-università,caffè-caffè,film-film,bar-bar,sport-sport,problema-problemi,tema-temi,programma-programmi,sistema-sistemi,poeta-poeti,mano-mani,radio-radio,foto-foto,auto-auto,moto-moto,bici-bici,re-re,virtù-virtù,crisi-crisi,analisi-analisi,tesi-tesi,lenzuolo-lenzuola,osso-ossa,miglio-miglia").map(function(r){return r.split("-")}),"Irregular or invariable plural.");
+var SBT=R("essere:sia,sia,sia,siamo,siate,siano|avere:abbia,abbia,abbia,abbiamo,abbiate,abbiano|andare:vada,vada,vada,andiamo,andiate,vadano|fare:faccia,faccia,faccia,facciamo,facciate,facciano|venire:venga,venga,venga,veniamo,veniate,vengano|potere:possa,possa,possa,possiamo,possiate,possano|volere:voglia,voglia,voglia,vogliamo,vogliate,vogliano|dovere:debba,debba,debba,dobbiamo,dobbiate,debbano|sapere:sappia,sappia,sappia,sappiamo,sappiate,sappiano|stare:stia,stia,stia,stiamo,stiate,stiano|dire:dica,dica,dica,diciamo,diciate,dicano|uscire:esca,esca,esca,usciamo,usciate,escano|dare:dia,dia,dia,diamo,diate,diano|bere:beva,beva,beva,beviamo,beviate,bevano|rimanere:rimanga,rimanga,rimanga,rimaniamo,rimaniate,rimangano|tenere:tenga,tenga,tenga,teniamo,teniate,tengano|scegliere:scelga,scelga,scelga,scegliamo,scegliate,scelgano|salire:salga,salga,salga,saliamo,saliate,salgano"),TR=T("Penso che,Voglio che,Spero che,Dubito che,Credo che,È meglio che,Bisogna che,Temo che,Immagino che,È importante che"),SS=function(i,p,k,j){return TR[(k*3+j)%10]+" "+PJ[p]+" __ ("+i+")."},rs=REG(ES);
+G("Subjunctive",0,rs[0],"Present subjunctive",P5,SS);G("Subjunctive",1,rs[1],"Present subjunctive",P5,SS);G("Subjunctive",2,SEL(SBT,Object.keys(SBT).join(",")),"Present subjunctive",P5,SS);
+var SC=function(i,p){return PN[p]+" __ ("+i+") volentieri."},rc=REG(EC);
+G("Conditional",0,rc[0],"Conditional",P6,SC);G("Conditional",1,rc[1],"Conditional",P6,SC);
+G("Conditional",2,T("essere:sar,avere:avr,andare:andr,fare:far,venire:verr,potere:potr,volere:vorr,dovere:dovr,sapere:sapr,stare:star,dare:dar,vedere:vedr,bere:berr,vivere:vivr,rimanere:rimarr,tenere:terr,mangiare:manger,cominciare:comincer,cercare:cercher,pagare:pagher,viaggiare:viagger").map(function(r){var q=r.split(":");return[q[0],CF.map(function(e){return q[1]+e})]}),"Conditional",P6,SC);
+var SI=function(i,p){return"__ ("+i+", "+T("tu,Lei,noi,voi")[p]+")!"},ri=REG(EI);
+[ri[0],ri[1]].forEach(function(vs,lv){G("Imperative",lv,vs,"Imperative",P4,SI);vs.forEach(function(v){P("Imperative","Non __ ("+v[0]+", tu)!",v[0],[v[1][0],v[1][1],v[1][3]],"Negative tu command: non + infinitive.",lv)})});
+var IMT=R("fare:fa'/fai,faccia,facciamo,fate|dire:di',dica,diciamo,dite|essere:sii,sia,siamo,siate|andare:va'/vai,vada,andiamo,andate|venire:vieni,venga,veniamo,venite|stare:sta'/stai,stia,stiamo,state|avere:abbi,abbia,abbiamo,abbiate|dare:da'/dai,dia,diamo,date|uscire:esci,esca,usciamo,uscite|bere:bevi,beva,beviamo,bevete|sapere:sappi,sappia,sappiamo,sappiate|tenere:tieni,tenga,teniamo,tenete|rimanere:rimani,rimanga,rimaniamo,rimanete|salire:sali,salga,saliamo,salite|scegliere:scegli,scelga,scegliamo,scegliete");
+G("Imperative",2,Object.keys(IMT).map(function(v){return[v,IMT[v].map(function(x){return x.replace("/","|")})]}),"Imperative (tu, Lei, noi, voi)",function(k){return[0,1,2,3]},SI);
+var RP=T("che,cui,chi,dove,il cui,la cui");
+function RN(a){a=a.split("|")[0].toLowerCase();return a=="che"?"Che is the subject or direct object.":a=="cui"?"After a preposition use cui.":a=="chi"?"Chi means 'whoever' and takes a singular verb.":a=="dove"?"Dove replaces 'in cui' for places.":a.indexOf("cui")>0?"Il cui, la cui, i cui, le cui mean 'whose'; the article agrees with the noun that follows.":"Quello che and ciò che mean 'what' (the thing that)."}
+T("il libro,il film,il ragazzo,il gatto,il vestito,il treno,la casa,la ragazza,la canzone,la pizza,la macchina,la scuola,i libri,i film,i ragazzi,i gatti,i vestiti,i treni,le case,le ragazze,le canzoni,le pizze,le macchine,le scuole").forEach(function(n,k){var pl=k>=12,e=pl?"sono":"è";[" __ mi "+(pl?"piacciono":"piace")+" "+e+" qui."," __ ho visto ieri "+e+" qui."].forEach(function(t){P("Relative pronouns",cap(n)+t,"che",RP,RN("che"),0)})});
+function RS(lv,t){t.split(";").forEach(function(r){var q=r.split("~");P("Relative pronouns",q[0],q[1],RP,RN(q[1]),lv)})}
+RS(0,"__ studia impara.~Chi;__ dorme non mangia.~Chi;__ cerca trova.~Chi;La città __ sono nato è piccola.~dove;Il bar __ ci incontriamo è vicino.~dove;La spiaggia __ andiamo è bella.~dove;Il paese __ vivo è tranquillo.~dove;Il posto __ lavoro è lontano.~dove");
+["a~scrivo~l'amico,la ragazza,il professore,la collega,il cliente,la nonna,lo zio,l'amica","con~lavoro~la ragazza,l'amico,il collega,la professoressa,il cane,l'amica,lo zio,la collega","di~parlo~l'amico,il film,la ragazza,il progetto,la città,il libro,il problema,la persona","in~abito~la casa,la città,il ristorante,la scuola,l'ufficio,il paese,la stanza,il negozio","da~vengo~il paese,la città,l'amico,il medico,la stazione,il quartiere,la regione,il villaggio","per~studio~il motivo,la ragione,la squadra,l'esame,la festa,il progetto,la causa,la persona","su~conto~l'amico,la collega,il tavolo,la sedia,il letto,il collega,la persona,l'amica"].forEach(function(r){var q=r.split("~");T(q[2]).forEach(function(n){P("Relative pronouns",cap(n)+" "+q[0]+" __ "+q[1]+" è qui.","cui",RP,RN("cui"),1)})});
+T("L'uomo,La donna,Il ragazzo,La ragazza,Il professore,Il medico,L'amico,La vicina,Il collega,Lo scrittore,La cantante,Il pittore").forEach(function(o){[["figlio","il cui"],["figlia","la cui"],["figli","i cui"],["figlie","le cui"]].forEach(function(q,j){P("Relative pronouns",o+" __ "+q[0]+" "+(j>1?"lavorano":"lavora")+" qui.",q[1],RP.concat(["i cui","le cui"]),RN(q[1]),2)})});
+RS(2,"Non capisco __ dici.~quello che|ciò che;__ mi hai detto è vero.~Quello che|Ciò che;Fai __ vuoi.~quello che|ciò che;Dimmi __ pensi.~quello che|ciò che;Ho fatto tutto __ potevo.~quello che|ciò che;Tutto __ dici è vero.~ciò che|quello che");
+var mode="flip",lv=-1,score=0,ans=null,opts=[],cat="All",deck=[],i=0,flipped=false,known={};
+try{known=JSON.parse(localStorage.getItem("itg-known")||"{}")}catch(e){known={}}
+function save(){try{localStorage.setItem("itg-known",JSON.stringify(known))}catch(e){}}
+function ids(c){var r=[],S=mode==="flip"?D:X;S.forEach(function(d,k){if((c==="All"||d[0]===c)&&(mode==="flip"||lv<0||d[5]===lv))r.push(k)});return r}
+function build(onlyNew){if(mode!=="flip"){deck=shuffle(ids(cat));var n=+document.getElementById("len").value;if(n)deck=deck.slice(0,n);i=0;score=0;ans=null;return render()}deck=ids(cat);if(onlyNew)deck=deck.filter(function(k){return !known[k]});i=0;flipped=false;render()}
+function shuffle(a){for(var n=a.length-1;n>0;n--){var j=Math.floor(Math.random()*(n+1));var t=a[n];a[n]=a[j];a[j]=t}return a}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function chips(){var h="";CATS.forEach(function(c){var all=ids(c),n=all.filter(function(k){return known[k]}).length;h+='<button class="chip" data-c="'+esc(c)+'" aria-pressed="'+(c===cat)+'">'+esc(c)+'<small>'+(mode==="flip"?n+"/":"")+all.length+'</small></button>'});document.getElementById("chips").innerHTML=h}
+function render(){
+  if(mode!=="flip")return qrender();
+  chips();var all=ids(cat),n=all.filter(function(k){return known[k]}).length;
+  document.getElementById("bar").style.width=(n/all.length*100)+"%";
+  document.getElementById("mastered").textContent=n+" of "+all.length+" learned";
+  var a=document.getElementById("area");
+  if(i>=deck.length){
+    document.getElementById("pos").textContent="Finished";
+    var left=all.length-n;
+    a.innerHTML='<div class="done"><h2>'+(deck.length?'Round complete':'Everything learned')+'</h2><p>'+(left?left+' card'+(left>1?'s':'')+' still to learn.':'You know all '+all.length+' cards in this topic.')+'</p>'+(left?'<button class="btn go" id="again">Review remaining</button>':'')+'<button class="btn" id="all">Start over with all cards</button></div>';
+    var b=document.getElementById("again");if(b)b.onclick=function(){build(true)};
+    document.getElementById("all").onclick=function(){build(false)};return;
+  }
+  var d=D[deck[i]];
+  document.getElementById("pos").textContent="Card "+(i+1)+" of "+deck.length;
+  a.innerHTML='<div class="stage"><button class="card'+(flipped?' flip':'')+'" id="card" aria-label="Flashcard. Press to flip."><div class="face f" aria-hidden="'+flipped+'"><span class="tag">'+esc(d[0])+'</span><div class="q">'+esc(d[1])+'</div><span class="hint">Tap to flip</span></div><div class="face b" aria-hidden="'+!flipped+'"><div class="a">'+esc(d[2])+'</div><div class="note">'+esc(d[3])+'</div></div></button></div><div class="row"><button class="btn" id="no">Again</button><button class="btn go" id="yes">Got it</button></div><div class="sr" aria-live="polite"></div>';
+  document.getElementById("card").onclick=flip;
+  document.getElementById("no").onclick=function(){grade(false)};
+  document.getElementById("yes").onclick=function(){grade(true)};
+}
+function flip(){var c=document.getElementById("card");if(!c)return;flipped=!flipped;c.classList.toggle("flip",flipped);c.querySelector(".f").setAttribute("aria-hidden",flipped);c.querySelector(".b").setAttribute("aria-hidden",!flipped)}
+function grade(ok){
+  if(i>=deck.length)return;var k=deck[i];
+  if(ok){known[k]=1;save()}else{delete known[k];save();deck.push(k)}
+  i++;flipped=false;render();
+}
+document.getElementById("chips").onclick=function(e){var b=e.target.closest(".chip");if(!b)return;cat=b.getAttribute("data-c");build(false)};
+document.getElementById("shuf").onclick=function(){if(mode!=="flip")return build();shuffle(deck);i=0;flipped=false;render()};
+document.getElementById("reset").onclick=function(){if(confirm("Clear all saved progress?")){known={};save();build(false)}};
+document.addEventListener("keydown",function(e){
+  if(e.target.closest&&e.target.closest(".chip"))return;
+  if(e.key===" "||e.key==="Enter"){if(document.getElementById("card")&&document.activeElement.tagName!=="BUTTON"){e.preventDefault();flip()}}
+  else if(mode==="flip"&&e.key==="1")grade(false);else if(mode==="flip"&&e.key==="2")grade(true);
+});
+function norm(t){return t.toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g," ").trim()}
+function bare(t){return norm(t).normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function qrender(){
+  chips();var a=document.getElementById("area"),pm=document.getElementById("pos"),ms=document.getElementById("mastered");
+  document.getElementById("bar").style.width=(i/deck.length*100)+"%";ms.textContent="Score "+score;
+  if(i>=deck.length){pm.textContent="Finished";a.innerHTML='<div class="qbox"><h2 style="margin:0 0 8px;font:700 1.7rem Bricolage Grotesque,system-ui,sans-serif">'+score+' of '+deck.length+' correct</h2><p>'+(score===deck.length?"Perfect round.":"Run another round to improve.")+'</p><button class="btn go" id="rs" style="max-width:260px">New round</button></div>';document.getElementById("rs").onclick=function(){build()};return}
+  var x=X[deck[i]],gap=mode==="gap",c0=x[2].split("|")[0];pm.textContent="Question "+(i+1)+" of "+deck.length;
+  var h='<div class="qbox"><span class="tag">'+esc(x[0])+", "+["beginner","intermediate","advanced"][x[5]]+'</span><div class="q">'+esc(x[1])+'</div>';
+  if(!gap){opts=shuffle([c0].concat(x[3]));h+='<div class="opts">'+opts.map(function(o,k){return '<button class="btn opt" data-o="'+k+'">'+esc(o)+'</button>'}).join("")+'</div>'}
+  else h+='<input id="inp" class="inp" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer"><button class="btn go" id="chk">Check</button>';
+  a.innerHTML=h+'<div class="fb" id="fb" aria-live="polite"></div></div>';
+  function settle(ok,extra){ans=ok;if(ok)score++;
+    document.getElementById("fb").innerHTML=(ok?"<b>Correct.</b> ":"<b>Not quite.</b> Answer: <b>"+esc(c0)+"</b>. ")+esc(x[4])+(extra?" "+esc(extra):"")+'<button class="btn go" id="nx">'+(i+1<deck.length?"Next":"See score")+'</button>';
+    var n=document.getElementById("nx");n.onclick=function(){i++;ans=null;render()};n.focus();
+    document.getElementById("bar").style.width=((i+1)/deck.length*100)+"%";ms.textContent="Score "+score}
+  document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){if(ans!==null)return;var ok=opts[b.dataset.o]===c0;b.classList.add(ok?"ok":"bad");document.querySelectorAll(".opt").forEach(function(o){if(opts[o.dataset.o]===c0)o.classList.add("ok");o.disabled=true});settle(ok)}});
+  if(gap){var inp=document.getElementById("inp");inp.focus();
+    var chk=function(){if(ans!==null||!norm(inp.value))return;var al=x[2].split("|"),ok=al.some(function(t){return norm(t)===norm(inp.value)}),cl=!ok&&al.some(function(t){return bare(t)===bare(inp.value)});inp.disabled=true;document.getElementById("chk").disabled=true;settle(ok||cl,cl?"Mind the accent: "+al[0]+".":"")};
+    document.getElementById("chk").onclick=chk;inp.onkeydown=function(e){if(e.key==="Enter")chk()}}
+}
+document.getElementById("len").onchange=function(){build()};document.getElementById("lvl").onchange=function(){lv=+this.value;build()};
+document.getElementById("modes").onclick=function(e){var b=e.target.closest(".chip");if(!b||!b.dataset.m)return;mode=b.dataset.m;document.querySelectorAll("#modes select").forEach(function(e){e.style.display=mode==="flip"?"none":""});document.querySelectorAll("#modes .chip").forEach(function(c){c.setAttribute("aria-pressed",c===b)});build(false)};
+build(false);
+var dip=null;
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dip=e;document.getElementById("install").hidden=false});
+document.getElementById("install").onclick=function(){if(!dip)return;dip.prompt();dip.userChoice.then(function(){dip=null;document.getElementById("install").hidden=true})};
+window.addEventListener("appinstalled",function(){document.getElementById("install").hidden=true});
+if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+</script>
+</body>
+</html>
